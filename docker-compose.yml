@@ -1,0 +1,19 @@
+version: "3.1"
+
+services:
+  mysql:
+    platform: linux/x86_64
+    image: mysql:8.0
+    container_name: karaoke_mysql
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: karaoke
+      MYSQL_USER: karaoke
+      MYSQL_PASSWORD: karaoke
+      TZ: "Asia/Tokyo"
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
