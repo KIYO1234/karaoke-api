@@ -23,7 +23,7 @@ const str = utf8decoder.decode(new Uint8Array(file));
 console.log("str: ", str);
 // console.log(fs.readFileSync("./sample.js"));
 
-const sample = () => {
+export const sample = () => {
   return "success!!"
 }
 
