@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql");
+const fs = require("fs");
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -15,6 +16,16 @@ connection.connect(function (err) {
 });
 const app = express();
 const port = 8080;
+
+const file = fs.readFileSync("./sample.js")
+let utf8decoder = new TextDecoder();
+const str = utf8decoder.decode(new Uint8Array(file));
+console.log("str: ", str);
+// console.log(fs.readFileSync("./sample.js"));
+
+const sample = () => {
+  return "success!!"
+}
 
 const corsOptions = {
   origin: "http://localhost:3000", // 許可したいオリジンを指定
